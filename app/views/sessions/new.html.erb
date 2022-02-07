@@ -1,6 +1,6 @@
 <center>
 <h1> Welcome to Log-In Page </h1>
-<p class="alert"><%= flash[:alert] %></p>
+<%= render "shared/flash_message" %>
 <%= form_with models: @customer, url: sessions_create_path, method: :post do |form| %>
   <div>
     <%= form.label :email %><br>

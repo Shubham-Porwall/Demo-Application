@@ -1,7 +1,4 @@
-<%= flash[:notice]%>
-<%= flash[:log_in] %>
-<%= flash[:log_out]%>
-
+<%= render "shared/flash_message" %>
 <% unless current_user.present? %>
 <h1 class="text-center">Welcome to Home Page</h1>
   <%= link_to "SIGN-UP", registrations_new_path, class: "btn btn-primary"%>

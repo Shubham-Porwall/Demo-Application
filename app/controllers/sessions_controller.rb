@@ -7,17 +7,17 @@ class SessionsController < ApplicationController
     @customer = Customer.find_by(email: params[:email])
     if @customer.present? && @customer.authenticate(params[:password])
       session[:customer_id] = @customer.id
-      flash[:log_in] = "Successfully login"
+      flash[:success] = "Successfully login"
       redirect_to root_path
     else
-      flash[:alert] = "Invalid Id or passowrd"
+      flash[:error] = "Invalid Id or passowrd"
       redirect_to sessions_new_path
     end
   end
 
   def destroy
     session[:customer_id] = nil
-    flash[:log_out] = "Logged out successfully"
+    flash[:alert] = "Logged out successfully"
     redirect_to root_path
   end
 end
