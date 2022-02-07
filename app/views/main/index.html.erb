@@ -1,0 +1,12 @@
+<%= flash[:notice]%>
+<%= flash[:log_in] %>
+<%= flash[:log_out]%>
+
+<% unless current_user.present? %>
+<h1 class="text-center">Welcome to Home Page</h1>
+  <%= link_to "SIGN-UP", registrations_new_path, class: "btn btn-primary"%>
+  <%= link_to "login", sessions_new_path, class: "btn btn-primary"%>
+<% else %>
+<h1 class="text-center">Welcome <%= current_user.email%></h1>
+<%= link_to "Log-out", sessions_destroy_path, class: "btn btn-danger"%>
+<% end %>
