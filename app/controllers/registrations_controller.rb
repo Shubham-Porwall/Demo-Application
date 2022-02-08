@@ -1,5 +1,6 @@
 class RegistrationsController < ApplicationController
-  before_action :is_loggedin, only: [:new, :create]
+  before_action :loggedin_checkker, only: %i(:new, :create)
+  
   def new
     @customer = Customer.new
   end
@@ -7,14 +8,15 @@ class RegistrationsController < ApplicationController
   def create
     @customer = Customer.new(signup_params)
     if @customer.save
-      flash[:notice] = "successfully submitted"
+      flash[:notice] = "Successfully signed up."
       redirect_to root_path 
     else
       render 'new'
     end
-    end
+  end
 
   private 
+  
   def signup_params
     params.permit(:email, :password, :password_confirmation)
   end

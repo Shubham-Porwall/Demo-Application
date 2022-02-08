@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  before_action :is_loggedin, only: [:new, :create]
-  def new
-  end
+  before_action :loggedin_checkker, only: %i(:new, :create)
+  
+  def new;end
 
   def create
     @customer = Customer.find_by(email: params[:email])

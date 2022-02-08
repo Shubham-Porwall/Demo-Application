@@ -1,7 +1,7 @@
-<div>
+<br><div>
 <% if @customer.errors.any? %>
-<%= @customer.errors.messages.each do |message| %>
-  <p><%= message %></p>
-<% end %>    
+  <% @customer.errors.full_messages.each do |message| %>
+   <spam class = "alert alert-danger"><%= message %></spam>
+  <% end %>    
 <% end%>
-</div>
+</div><br>
