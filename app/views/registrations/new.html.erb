@@ -1,6 +1,6 @@
 <center>
   <h1>Registration - Page</h1>
-  <%= form_with model: @customer, url: registrations_create_path, method: :post, data: { turbo: false } do |form| %>
+  <%= form_with model: @customer, data: { turbo: false }, url: registrations_path, method: :post do |form| %>
     <%= render "error" %> 
     <div>
       <%= form.label :email %><br>

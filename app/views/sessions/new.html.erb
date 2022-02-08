@@ -1,7 +1,7 @@
 <center>
   <h1> Welcome to Log-In Page </h1>
   <%= render "shared/flash_message" %>
-  <%= form_with models: @customer, url: sessions_create_path, method: :post do |form| %>
+  <%= form_with model: @customer, url: sessions_path, method: :post do |form| %>
     <div>
       <%= form.label :email %><br>
       <%= form.text_field :email %>
@@ -13,7 +13,7 @@
     </div><br>
 
     <div>
-      <%= form.submit "Login"%>
+      <%= form.submit "Login" %>
     </div>
   <% end %>
 </center>

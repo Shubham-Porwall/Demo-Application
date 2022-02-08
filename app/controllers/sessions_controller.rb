@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  before_action :loggedin_checkker, only: %i(:new, :create)
+  before_action :loggedin_checkker, only: %i(new create)
   
-  def new;end
+  def new; end
 
   def create
     @customer = Customer.find_by(email: params[:email])
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "Invalid Id or passowrd"
-      redirect_to sessions_new_path
+      redirect_to sessions_url
     end
   end
 

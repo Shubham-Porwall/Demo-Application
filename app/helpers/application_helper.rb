@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def current_customer
-    Customer.find_by(id: session[:customer_id]) if session[:customer_id].present?
-  end
-
   def flash_class(level)
     case level
       when 'notice' then 'info'

@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :loggedin_checkker, only: %i(:new, :create)
+  before_action :loggedin_checkker, only: %i(new create)
   
   def new
     @customer = Customer.new
@@ -18,6 +18,6 @@ class RegistrationsController < ApplicationController
   private 
   
   def signup_params
-    params.permit(:email, :password, :password_confirmation)
+    params.require(:customer).permit(:email, :password, :password_confirmation)
   end
 end

@@ -1,9 +1,9 @@
 <%= render "shared/flash_message" %>
 <% unless current_customer.present? %>
   <h1 class="text-center">Welcome to Home Page</h1>
-  <%= link_to "SIGN-UP", registrations_new_path, class: "btn btn-primary" %>
-  <%= link_to "login", sessions_new_path, class: "btn btn-primary" %>
+  <%= link_to "SIGN-UP", new_registration_path, class: "btn btn-primary" %>
+  <%= link_to "login", new_session_path, class: "btn btn-primary" %>
 <% else %>
   <h1 class="text-center">Welcome <%= current_customer.email %></h1>
-  <%= link_to "Log-out", sessions_destroy_path, class: "btn btn-danger" %>
+  <%= link_to "Log-out", logout_path, method: :delete, class: "btn btn-danger" %>
 <% end %>
