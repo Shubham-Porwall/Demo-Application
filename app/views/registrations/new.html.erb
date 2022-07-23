@@ -1,0 +1,21 @@
+<center>
+  <h1>Registration - Page</h1>
+  <%= form_with model: @customer, data: { turbo: false }, url: registrations_path, method: :post do |form| %>
+    <%= render "error" %> 
+    <div>
+      <%= form.label :email %><br>
+      <%= form.text_field :email %>
+    </div>
+
+    <div>
+      <%= form.label :password %><br>
+      <%= form.password_field :password %><br>
+      <%= form.label :password_confirm %><br>
+      <%= form.password_field :password_confirmation %>
+    </div><br>
+
+    <div>
+      <%= form.submit "Register" %>
+    </div>
+  <% end %>
+</center>
